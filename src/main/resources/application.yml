@@ -3,3 +3,11 @@ bitsystems:
     user: aboy
     password:  netscape
     url:  jms.bitsystems.com.ng
+---
+spring:
+  profiles:
+    active: de
+
+bitsystems:
+  jms:
+    user: Agaba
