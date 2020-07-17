@@ -2,23 +2,12 @@ package ng.com.bitsystems.didemo.config;
 
 import ng.com.bitsystems.didemo.examplebean.FakeDataSource;
 import ng.com.bitsystems.didemo.examplebean.FakeJmsBroker;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.env.Environment;
 
 @Configuration
-@PropertySources({
-        @PropertySource("classpath:datasource.properties"),
-        @PropertySource("classpath:jms.properties")})
 public class PropertyConfig {
-
-    @Autowired
-    Environment environment;
 
     @Value("${bitsystems.user}")
     String user;
@@ -52,12 +41,7 @@ public class PropertyConfig {
         FakeDataSource fakeDataSource = new FakeDataSource();
         fakeDataSource.setDburl(dburl);
         fakeDataSource.setPassword(password);
-        fakeDataSource.setUser(environment.getProperty("USERNAME"));
+        fakeDataSource.setUser(user);
         return fakeDataSource;
-    }
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer(){
-        return new PropertySourcesPlaceholderConfigurer();
     }
 }
