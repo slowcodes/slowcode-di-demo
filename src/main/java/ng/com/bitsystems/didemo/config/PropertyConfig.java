@@ -18,13 +18,13 @@ public class PropertyConfig {
     @Value("${bitsystems.dburl}")
     String dburl;
 
-    @Value("{jms.username}")
+    @Value("${bitsystems.jms.user}")
     String jmsUser;
 
-    @Value("jms.password")
+    @Value("${bitsystems.jms.password}")
     String jmsPassword;
 
-    @Value("jms.Url")
+    @Value("${bitsystems.jms.url}")
     String jmsUrl;
 
     @Bean

@@ -1,0 +1,5 @@
+bitsystems:
+  jms:
+    user: aboy
+    password:  netscape
+    url:  jms.bitsystems.com.ng
